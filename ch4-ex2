@@ -1,0 +1,37 @@
+//Aquí demuestro el uso de for.
+import java.awt.Graphics;
+import javax.swing.JPanel;
+import javax.swing.JFrame;
+
+public class PruebaEj41_4 extends JPanel
+{
+	public static void main(String[] args)
+	{
+		PruebaEj41_4 panel = new PruebaEj41_4();
+	
+		JFrame aplicacion = new JFrame();
+	
+		aplicacion.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	
+		aplicacion.add(panel);
+		aplicacion.setSize(250, 250);
+		aplicacion.setVisible(true);
+	}
+
+	public void paintComponent(Graphics g)
+	{
+		super.paintComponent(g);
+		
+		int an = getWidth();
+		int al = getHeight();
+		
+		for(int i = 0, j = 1, k = 14, l = 15; i <= 14 && j <= 15 && k >= 1 && l <=15; i++, j++, k--, l--)
+			
+		{
+			g.drawLine(0, (al*i/15), (an*j/15), al);
+			g.drawLine(an, (al*i/15), (an*k/15), al);
+			g.drawLine(0, (al*l/15), (an*j/15), 0);
+			g.drawLine(an, (al*l/15), (an*k/15), 0);
+		}
+	}
+}
