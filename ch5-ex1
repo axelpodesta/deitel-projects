@@ -1,0 +1,31 @@
+//Ejercicio de práctica 5.1
+import java.awt.Graphics;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+//import javax.swing.JOptionPane;
+
+public class Ej5_5_1 extends JPanel
+{
+	public static void main(String[] args)
+	{
+		Ej5_5_1 panel = new Ej5_5_1();
+		
+		JFrame aplicacion = new JFrame();
+		
+		aplicacion.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
+		aplicacion.add(panel);
+		aplicacion.setSize(300, 300);
+		aplicacion.setVisible(true);
+	}
+	public void paintComponent(Graphics g)
+	{
+		int an = getWidth();
+		int al = getHeight();
+		
+		for (int i = 10; i <= 120; i += 10)
+		{
+		g.drawOval(((an/2)-i), ((al/2)-i), (i*2), (i*2));
+		}
+	}
+}
