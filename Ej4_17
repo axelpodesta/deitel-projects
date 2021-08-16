@@ -1,0 +1,53 @@
+import java.util.Scanner;
+public class Ej4_17 {
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);
+		int litExist = 0;//Combustible en disponibilidad para consumir, valor entero.
+		int litIngr = 0;//Combustible cargado, valor entero.
+		int litAct = 0;//Total de combustible disponible en tanque, valor entero.
+		int litSaldo = 0;//Saldo disponible de combustible en litros, luego de recorrer. Valor entero.
+		int litCons = 0;//Cantidad entera de litros consumidos.
+		int kmTot = 0;//Cantidad de km recorridos.
+		int kmRec = 0;//Variable centinela, acumula o finaliza iteracion.
+		double kmLit = 0;//Variable km/lit.
+			
+		System.out.printf("Este programa calcula los km/litro consumidos entre reabastecimientos%n%n");
+		
+		System.out.printf("Por favor ingrese los litros en existencia en el tanque: ");
+		litExist = input.nextInt();
+		
+		System.out.printf("Por favor ahora ingrese los litros que se cargaron: ");
+		litIngr = input.nextInt();
+		
+		litAct = litExist + litIngr;
+		
+		System.out.printf("%n");
+		
+		System.out.printf("El total de combustible en disponibilidad es %d%n%n", litAct);
+		
+		while (kmRec != -1) {
+			System.out.printf("Por favor ahora ingrese los km conducidos en cada viaje,"
+					+ " hasta volver a cargar combustible. Ingrese -1 para terminar: ");
+			
+			kmRec = input.nextInt();
+			
+			kmTot += kmRec;
+			
+			if(kmRec == -1) {
+			kmTot ++;
+			System.out.printf("El total de km ingresados es %d%n", kmTot);
+			}
+		}
+		
+		System.out.printf("Por favor ingrese los litros que quedan en existencia luego de los recorridos%n");
+		litSaldo = input.nextInt();
+		litCons = litAct - litSaldo;
+		
+		if(litCons > 0) {
+			kmLit = (double) kmTot  / litCons;
+			System.out.printf("Se consumieron %.2f kilometros por litro%n", kmLit);
+		}
+			else
+				System.out.print("No se consumio combustible");
+	}
+}
