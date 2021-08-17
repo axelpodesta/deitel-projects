@@ -1,0 +1,35 @@
+import java.util.Scanner;
+public class Ej4_18 {
+
+	public static void main (String[] args) {
+		int movCta = -1;
+		int sFCta = 0;
+		
+		
+		Scanner input = new Scanner(System.in);
+		
+		System.out.printf("%nEste programa calcula si un cliente en particular esta excedido en su linea de credito %n");
+		System.out.printf("************************************************************************************** %n%n");
+		
+		System.out.print("Por favor ingrese los seis digitos del numero de cuenta: ");
+		int nCta = input.nextInt();
+		
+		System.out.print("Por favor ingrese el saldo inicial de la cuenta: ");
+		int sICta = input.nextInt();
+		
+		System.out.print("Por favor ingrese el limite de credito mensual: ");
+		int lCta = input.nextInt();
+		
+		while(movCta != 0) {
+			System.out.printf("%nPor favor ingrese valores positivos para las creditos (compras del cliente) y valores negativos para"
+					+ " los debitos (pagos del cliente). %nIngrese 0 para finalizar ");
+			movCta = input.nextInt();
+			sFCta += movCta;
+			
+			System.out.printf("El saldo actual acumulado de la cuenta es: %d", (sFCta + sICta));
+			if((sFCta + sICta) > lCta) {
+				System.out.printf("%n%nAtencion, el cliente %d ha excedido el limite de credito en $%d%n", nCta, ((sFCta + sICta) - lCta));
+			}
+		}
+	}
+}
