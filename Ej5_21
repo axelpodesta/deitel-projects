@@ -1,0 +1,23 @@
+//This program shows Pythagorean triples for values up to 500.
+public class Ej5_21 {
+    public static void main(String[] args) {
+        int doNotDuplicate = 0;
+        int countPythagoreanTriple = 0;
+        for (int a = 1; a <= 500; a++){
+            for (int b = 1; b <= 500; b++){
+                for (int c = 1; c <= 500; c++){
+                    if (((a*a)+(b*b)) == (c*c)){
+                        doNotDuplicate++;
+                        
+                        if (doNotDuplicate % 2 != 0){
+                            countPythagoreanTriple++;
+                            System.out.printf("a=%d, b=%d, c=%d%n", a, b, c);
+                        }
+                    }
+                }
+            }
+        }
+        System.out.printf("Pythagorean triples founded: %d%n",
+                countPythagoreanTriple);
+    }
+}
